@@ -56,7 +56,7 @@ button:active {
   opacity: 1;
 }
 
-#attack-btn {
+#normal-attack-btn {
   background: #ff0000;
   border-color: #ff0000;
 }
