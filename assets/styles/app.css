@@ -103,3 +103,63 @@ button:active {
   margin: 0 0.5rem;
 }
 
+/* Text Animation */
+.splitting {
+  cursor: pointer;
+}
+
+header .headline {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  line-height: 1;
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0.9em auto;
+}
+
+header .headline .char {
+  color: rgba(255, 255, 255, 1);
+  transition: opacity 0.2s linear;
+}
+
+header .headline .char::before,
+header .headline .char::after {
+  visibility: visible;
+  opacity: 0;
+}
+
+header .headline:hover .char {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+header .headline:hover .char::before,
+header .headline:hover .char::after {
+  opacity: 0.8;
+  animation: blur 0.6s linear infinite alternate;
+  animation-delay: calc(-0.2s * var(--distance-percent));
+}
+
+header .headline:hover .char::after {
+  animation-delay: calc(0.3s + (-0.2s * var(--distance-percent)));
+}
+
+@keyframes blur {
+  0% {
+    transform: translate(-0.1em, 0) scale(0.9) rotate(-2deg);
+  }
+  50% {
+    transform: translate(0, 0) scale(1.1) rotate(0deg);
+  }
+  100% {
+    transform: translate(0.1em, 0) scale(0.9) rotate(2deg);
+  }
+}
+/* End of Text Animation*/
+
+@media screen and (max-width: 600px) {
+  #health-levels,
+  #controls {
+    width: 17rem;
+  }
+}
